@@ -6,11 +6,11 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 20:51:23 by sgardner          #+#    #+#             */
-/*   Updated: 2017/10/02 17:04:19 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/10/03 14:32:54 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ITER 25
+# define ITER 50
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,9 +39,10 @@ int			main(int argc, char **argv)
 	int		count;
 	int		i;
 
-	fprintf(stderr,
-			"\nRunning %d iterations...\nDecrease ITER in test.c if too slow.\n"
-			, ITER);
+	fprintf(stderr,	"\nRunning %d iterations with BUFF_SIZE %d...\n",
+			ITER, BUFF_SIZE);
+	fprintf(stderr, "Increase BUFF_SIZE or decrease ITER in run_test.sh if"
+			" test takes too long.\n");
 	i = 0;
 	while (i++ < ITER)
 	{
