@@ -6,17 +6,17 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 20:51:23 by sgardner          #+#    #+#             */
-/*   Updated: 2017/10/02 16:35:00 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/10/02 17:04:19 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define ITER 25
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "../get_next_line.h"
 #include "malloc_wrapper.h"
-#define ITER 25
 
 static void	print_report(int count)
 {
