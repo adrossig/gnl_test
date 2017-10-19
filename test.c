@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 20:51:23 by sgardner          #+#    #+#             */
-/*   Updated: 2017/10/03 14:32:54 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/10/18 22:40:49 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,7 @@ static void	print_report(int count)
 			g_num_mallocs - count);
 	fprintf(stderr, "%-26s %d\n", "Data structures freed:",
 			g_num_frees - count);
-	fprintf(stderr, "%-26s %d (%lu bytes)\n", "Total allocations:",
-			g_num_mallocs, g_bytes_allocated);
-	fprintf(stderr, "%-26s %d\n", "Total freed allocations:", g_num_frees);
-	fprintf(stderr, "%-26s %d\n\n", "Memory leaks:",
-			g_num_mallocs - g_num_frees);
+	print_alloc_report(1);
 }
 
 int			main(int argc, char **argv)
