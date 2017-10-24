@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/01 01:56:25 by sgardner          #+#    #+#             */
-/*   Updated: 2017/10/18 22:55:35 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/10/23 18:00:03 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void		print_alloc_report(int print_address)
 		leaked_bytes += g_head->size;
 		fprintf(stderr, "%p (%lu bytes)\n", g_head->ptr, g_head->size);
 		next = g_head->next;
-		libc_free(g_head->ptr);
 		libc_free(g_head);
 		g_head = next;
 	}
