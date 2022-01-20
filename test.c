@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrossig <adrossig@students.42.fr>         +#+  +:+       +#+        */
+/*   By: arossign <arossign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 20:51:23 by sgardner          #+#    #+#             */
-/*   Updated: 2020/09/12 20:54:13 by adrossig         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:52:37 by arossign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	print_report(int count)
 	print_alloc_report(0);
 }
 
-int			main(int argc, char **argv)
+int			main()
 {
 	int		fd;
 	char	*line;
@@ -42,20 +42,17 @@ int			main(int argc, char **argv)
 	i = 0;
 	while (i++ < ITER)
 	{
-		if (argc == 2)
-		{
-			if ((fd = open(argv[1], O_RDONLY)) == -1)
-				return (1);
-		}
-		else
-			fd = 0;
 		line = NULL;
 		count = 0;
-		while ((get_next_line(fd, &line)) == 1)
+		if ((fd = open("big.txt", O_RDONLY)) == -1)
+			return (1);
+		line = get_next_line(fd);
+		while (line != NULL)
 		{
 			printf("%s\n", line);
 			free(line);
 			count++;
+			line = get_next_line(fd);
 		}
 		if (close(fd) == -1)
 			return (1);
